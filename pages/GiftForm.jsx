@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const API_URL = "http://localhost/gift-api/evaluate_gifts.php"; 
-// adatta il path in base a dove metti i file PHP
+const API_URL = "https://manuesse.netsons.org/gift-api/evaluate_gifts.php"; // adatta il path in base a dove metti i file PHP
 
 export default function GiftForm() {
   const [name, setName] = useState("");
@@ -48,16 +47,13 @@ export default function GiftForm() {
     <section className="form-section">
       <div className="form-card">
         <h2>Scrivi i tuoi tre regali</h2>
-        <p className="subtitle">
-          Promesso: non giudichiamo (troppo).
-        </p>
+        <p className="subtitle">Promesso: non giudichiamo (troppo).</p>
 
         <form onSubmit={handleSubmit} className="gift-form">
           <div className="field">
             <label>Nome (opzionale)</label>
             <input
               type="text"
-              placeholder="Come ti chiami?"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -67,7 +63,6 @@ export default function GiftForm() {
             <label>Regalo 1</label>
             <input
               type="text"
-              placeholder="Es. Weekend romantico a Venezia"
               value={gift1}
               onChange={(e) => setGift1(e.target.value)}
               required
@@ -78,7 +73,6 @@ export default function GiftForm() {
             <label>Regalo 2</label>
             <input
               type="text"
-              placeholder="Es. Nuovo iPhone"
               value={gift2}
               onChange={(e) => setGift2(e.target.value)}
               required
@@ -89,7 +83,6 @@ export default function GiftForm() {
             <label>Regalo 3</label>
             <input
               type="text"
-              placeholder="Es. Cena con chef stellato"
               value={gift3}
               onChange={(e) => setGift3(e.target.value)}
               required
