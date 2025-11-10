@@ -11,22 +11,11 @@ export default function Home() {
         <p>
           Scrivi tre regali che vorresti ricevere e lascia che il nostro
           oracolo spietato ti dica la verità. Niente frasi motivazionali, solo
-          onestà con un pizzico di ironia.
+          realismo con un pizzico di ironia.
         </p>
         <Link to="/play" className="cta-button">
           Inizia il test 🎁
         </Link>
-      </div>
-      <div className="hero-card">
-        <p className="hero-label">Esempio</p>
-        <ul>
-          <li>🏎️ Ferrari</li>
-          <li>📱 iPhone 16 Pro Max</li>
-          <li>☕ Colazione a letto</li>
-        </ul>
-        <p className="hero-note">
-          Spoiler: uno solo è davvero probabile.
-        </p>
       </div>
     </section>
   );

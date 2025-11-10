@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API_URL = "https://manuesse.netsons.org/gift-api/evaluate_gifts.php"; // adatta il path in base a dove metti i file PHP
+const API_URL = "https://manuesse.netsons.org/gift-api/evaluate_gifts.php";
 
 export default function GiftForm() {
   const [name, setName] = useState("");
@@ -8,13 +8,13 @@ export default function GiftForm() {
   const [gift2, setGift2] = useState("");
   const [gift3, setGift3] = useState("");
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState(null);
+  const [result, setResult] = useState(null); // { name, message }
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setResults(null);
+    setResult(null);
 
     if (!gift1 || !gift2 || !gift3) {
       setError("Inserisci tutti e tre i regali.");
@@ -35,7 +35,13 @@ export default function GiftForm() {
         throw new Error(data.error || "Errore sconosciuto");
       }
 
-      setResults(data);
+      // Salviamo il risultato (nome incluso), poi puliamo i campi
+      setResult({ name: data.name || "", message: data.message });
+
+      setName("");
+      setGift1("");
+      setGift2("");
+      setGift3("");
     } catch (err) {
       setError(err.message || "Errore di connessione");
     } finally {
@@ -97,21 +103,16 @@ export default function GiftForm() {
         </form>
       </div>
 
-      {results && (
+      {result && (
         <div className="results-card">
           <h3>
-            {results.name
-              ? `Okay ${results.name}, ecco il verdetto:`
-              : "Ecco il verdetto dei tuoi desideri:"}
+            {result.name
+              ? `Okay ${result.name}, ecco la mia opinione:`
+              : "Ecco la mia opinione sui tuoi regali:"}
           </h3>
-          <ul className="results-list">
-            {results.results.map((r, i) => (
-              <li key={i} className="result-item">
-                <div className="gift-label">🎁 {r.gift}</div>
-                <div className="gift-message">{r.message}</div>
-              </li>
-            ))}
-          </ul>
+          <p className="result-message">
+            {result.message}
+          </p>
         </div>
       )}
     </section>
