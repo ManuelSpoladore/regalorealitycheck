@@ -26,6 +26,8 @@ body {
   min-height: 100vh;
 }
 
+/* ================== BASE LAYOUT ================== */
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -79,8 +81,8 @@ body {
 
 .main {
   flex: 1;
-  padding: 40px 24px 32px;
-  max-width: 1080px;
+  padding: 60px 24px 48px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -91,7 +93,7 @@ body {
   color: var(--muted);
 }
 
-/* Home */
+/* ================== HERO SECTION ================== */
 
 .hero {
   display: grid;
@@ -121,7 +123,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 18px;
-  padding: 11px 22px;
+  padding: 12px 26px;
   border-radius: 999px;
   background: linear-gradient(to right, var(--accent), #6366f1);
   color: #020817;
@@ -129,7 +131,7 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
   transition: var(--transition);
 }
@@ -171,77 +173,85 @@ body {
   font-size: 11px;
 }
 
-/* Form & Results */
+/* ================== FORM & RESULTS ================== */
 
 .form-section {
   display: grid;
-  grid-template-columns: 1.6fr 1.4fr;
-  gap: 24px;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 36px;
   align-items: flex-start;
 }
 
 .form-card,
 .results-card {
-  background: rgba(5, 9, 26, 0.98);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.06), #050816);
   border-radius: var(--radius-xl);
-  padding: 20px 18px 18px;
-  border: var(--border-subtle);
-  box-shadow: var(--shadow-soft);
+  padding: 28px 26px 24px;
+  border: 1px solid rgba(148, 163, 253, 0.22);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
 }
 
 .form-card h2 {
-  margin: 0 0 4px;
-  font-size: 22px;
+  margin: 0 0 6px;
+  font-size: 24px;
 }
 
 .subtitle {
-  margin: 0 0 14px;
+  margin: 0 0 18px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .gift-form {
   display: grid;
-  gap: 10px;
+  gap: 14px;
 }
 
 .field label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .field input {
   width: 100%;
-  padding: 9px 11px;
-  border-radius: 12px;
+  padding: 13px 14px;
+  border-radius: 14px;
   border: 1px solid rgba(148, 163, 253, 0.18);
   background: rgba(2, 6, 23, 0.96);
   color: var(--text);
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
   transition: var(--transition);
 }
 
 .field input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+.gift-form .cta-button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 24px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
 }
 
 .alert.error {
-  margin-top: 4px;
-  padding: 8px 10px;
+  margin-top: 6px;
+  padding: 9px 10px;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: 12px;
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.35);
   color: #fecaca;
 }
 
 .results-card h3 {
-  margin: 0 0 10px;
-  font-size: 16px;
+  margin: 0 0 12px;
+  font-size: 17px;
 }
 
 .results-list {
@@ -249,28 +259,28 @@ body {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .result-item {
-  padding: 10px 10px 9px;
-  border-radius: 14px;
+  padding: 12px 12px 10px;
+  border-radius: 16px;
   background: radial-gradient(circle at top left, var(--accent-soft), rgba(5, 9, 26, 0.98));
   border: 1px solid rgba(148, 163, 253, 0.18);
 }
 
 .gift-label {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .gift-message {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   margin-top: 2px;
 }
 
-/* Responsive */
+/* ================== RESPONSIVE ================== */
 
 @media (max-width: 840px) {
   .hero,
@@ -279,10 +289,105 @@ body {
   }
 
   .main {
-    padding: 24px 16px 24px;
+    padding: 24px 14px 24px;
   }
 
   .nav {
-    padding: 10px 16px;
+    padding: 10px 14px;
+  }
+
+  .form-section {
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .form-card,
+  .results-card {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Navbar compatta */
+  .nav {
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  /* Hero */
+  .hero {
+    gap: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  /* Form più grande e leggibile */
+  .form-card,
+  .results-card {
+    padding: 18px 14px 16px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+    background: linear-gradient(to bottom, rgba(9, 9, 20, 0.98), rgba(5, 8, 18, 0.98));
+  }
+
+  .form-card h2 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .field label {
+    font-size: 11px;
+  }
+
+  .field input {
+    padding: 11px 12px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  .gift-form .cta-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .results-card h3 {
+    font-size: 14px;
+  }
+
+  .result-item {
+    padding: 9px 9px 8px;
+  }
+
+  .gift-label {
+    font-size: 12px;
+  }
+
+  .gift-message {
+    font-size: 10px;
   }
 }
