@@ -8,7 +8,7 @@ export default function App() {
     <div className="app">
       <header className="nav">
         <Link to="/" className="logo">
-          🎁 Gift Reality Check
+          🎁 Regalo Reality Check
         </Link>
         <nav>
           <Link to="/" className="nav-link">Home</Link>
